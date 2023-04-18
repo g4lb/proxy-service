@@ -26,10 +26,10 @@ async def http_middleware(request, call_next):
     request_body = await request.body()
     incoming_bytes_size = len(bytes(request_body))
     try:
+        response = await call_next(request)
         await verify_hmac(request, request_body)
         end = datetime.timestamp(datetime.now())
         update_metrics(url, end - start, False, incoming_bytes_size)
-        response = await call_next(request)
         return response
     except HTTPException as e:
         end = datetime.timestamp(datetime.now())
