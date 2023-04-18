@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package pokedex;
+
+message Pokemon {
+    uint64 number = 1;
+    string name = 2;
+    string type_one = 3;
+    string type_two = 4;
+    uint64 total = 5;
+    uint64 hit_points = 6;
+    uint64 attack = 7;
+    uint64 defense = 8;
+    uint64 special_attack = 9;
+    uint64 special_defense = 10;
+    uint64 speed = 11;
+    uint64 generation = 12;
+    bool legendary = 13;
+}
